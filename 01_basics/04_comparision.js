@@ -57,4 +57,12 @@ const myFunction = function () {
     console.log("Hello World");
 }
 
-console.log(typeof myFunction);
+// console.log(typeof myFunction);
+
+
+
+// ******************************************
+
+//Stack (primitve) => copy of value , Heap (non-primitive) => reference of orignal value
+
+
