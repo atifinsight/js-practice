@@ -287,7 +287,95 @@ CPU Usage:
 
 */
 
+//************************************** */
+//************************************** */
+//************************************** */
 
+
+// 20. 
+
+// console.log("1"-1);
+
+// setTimeout(() => {
+//     console.log(10);
+// }, 10);
+// console.log(2);
+
+// setTimeout(() => {
+//     console.log(12);
+// }, 10);
+// setTimeout(() => {
+//     console.log(11);
+// }, 9);
+
+// Find out first repeated character from string using function
+
+
+//************************************** */
+
+// 21. Find first repeated character
+
+// const str = "Heena"
+
+// function repeatedCharacter(){
+//     for (let i = 0; i < str.length; i++) {
+//         for (let j = i+1; j < str.length; j++) {
+//             if (str[i] === str[j]) {
+//                 return str[i]
+//             }
+//         }
+//     }
+//     return null
+//      // if no repeated character
+// }
+// console.log(repeatedCharacter(str));
+
+//************************************** */
+
+// 22. Separate characters in 1 array and number in different array using function
+
+// const arr = ["a","b",18,"d",100,10]
+
+
+// By using For OF loop
+
+// function separateCharsAndNumbers(arr){
+//     let charArr = []
+//     let numArr = []
+
+//     for (let item of arr) {
+//         if (typeof item === "string") {
+//             charArr.push(item)
+//         } else if (typeof item === "number") {
+//             numArr.push(item)
+//         }
+//     }
+//     return {charArr, numArr}
+// }
+
+// const result = separateCharsAndNumbers(arr)
+// console.log(`Characters are : ${result.charArr}`);
+// console.log(`Numbers are : ${result.numArr}`);
+
+// By using For Loop
+function separateCharsAndNumbers(arr) {
+  const chars = [];
+  const nums = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (typeof arr1[i] === "string") {
+      chars.push(arr[i]);
+    } else if (typeof arr[i] === "number") {
+      nums.push(arr1[i]);
+    }
+  }
+
+  console.log("Characters are:", chars);
+  console.log("Numbers are:", nums);
+}
+
+const arr1 = ["a", "b", 18, "d", 100, 10];
+separateCharsAndNumbers(arr1);
 
 
 
