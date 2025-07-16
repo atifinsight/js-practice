@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atif Insight</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+       const li = document.createElement('li')
+       li.innerHTML = `${langName}` // It triverse whole tree structure that is computational heavy because it needs to triverse whole tree then add the node at last
+       document.querySelector('.language').appendChild(li)
+       }
+       addLanguage("python")
+       addLanguage("typescript")
+       addLanguage("java")
+
+       function addOptiLanguage(langName){
+            const li = document.createElement('li')
+            const addText = document.createTextNode(langName) // this is optimized way because it does not triverse whole tree it just add the node at end directly
+            li.appendChild(addText)
+            document.querySelector('.language').appendChild(li)
+       }
+       addOptiLanguage("C++")
+       addOptiLanguage("ruby")
+
+       // Edit1 By using innerHTML
+       const secondLang = document.querySelector("li:nth-child(2)")
+       //secondLang.innerHTML = "Mojo"
+
+       //edit2 by make new element then replace
+       const newLi = document.createElement("li")
+       newLi.textContent = "Mojo"
+       secondLang.replaceWith(newLi)
+
+       // edit3 by using outerHTML
+       const firstLang = document.querySelector("li:first-child")
+       firstLang.outerHTML = '<li>Type Script</li>'
+
+
+       // remove
+       const lastLang = document.querySelector('li:last-child')
+       lastLang.remove()
+
+</script>
+</html>
