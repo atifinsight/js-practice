@@ -52,6 +52,13 @@ nav a[aria-current='page'] {
   color: rgb(241, 241, 241);
 }
 
+#final_weight {
+  font-size: 35px;
+  margin-left: 90px;
+  margin-top: 20px;
+  color: rgb(241, 241, 241);
+}
+
 button {
   width: 150px;
   height: 35px;
