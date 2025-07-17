@@ -29,7 +29,7 @@ form.addEventListener('submit', function(e){
         } else if(bmiValue > 24.9){
             final_weight.innerHTML = '<span>Over Weight</span>'
         } else {
-            final_weight.innerHTML = '<span>Not in range please give correct height and weight</span>'
+            final_weight.innerHTML = '<span>Not in range Please give correct height and weight</span>'
         }
     
     }
