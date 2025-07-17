@@ -1,8 +1,9 @@
 .container {
-  width: 575px;
-  height: 825px;
+  width: 1920px;
+  height: 830px;
   background-color: #797978;
-  padding-left: 30px;
+  padding-left: 830px;
+  padding-top: 30px;
 }
 
 
