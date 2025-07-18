@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Requests</title>
+    <style>
+    body {
+      background-color: #212121;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    #card {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      display: none;
+    }
+
+    #card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+
+    #card h2 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    #card p {
+      margin: 5px 0;
+      color: #ccc;
+    }
+
+    #btnShow {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff5c5c;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #btnShow:hover {
+      background-color: #e04848;
+    }
+    #btnHide {
+      padding: 10px 35px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0073f7;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #btnHide:hover {
+      background-color: #628bd8;
+    }
+  </style>
+</head>
+<body style="background-color: #212121;">
+    <!-- Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+
+<h1>Click the button SHOW to see the profile picture of github user and followers</h1>
+<button id="btnShow">SHOW</button>
+<button id="btnHide">Hide</button>
+<div id="card">
+  <img id="avatar" src="" alt="Avatar" />
+  <h2 id="username">Username</h2>
+  <p id="followers">Followers: 0</p>
+  <p id="bio"></p>
+</div>
+
+
+</body>
+<script>
+
+    let buttonShow = document.querySelector('#btnShow');
+    let buttonHide = document.querySelector('#btnHide');
+    let card = document.querySelector('#card');
+    let avatar = document.querySelector('#avatar');
+    let username = document.querySelector('#username');
+    let followers = document.querySelector('#followers');
+    let bio = document.querySelector('#bio');
+
+    buttonShow.addEventListener('click', function(){
+        const requestUrl = 'https://api.github.com/users/atifinsight'
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', requestUrl)  // Track tate 1 time
+        // alert('HERE')
+        xhr.onreadystatechange = function(){  // continously track state
+            // console.log(xhr.readyState)
+            if (xhr.readyState === 4) {
+                const data = JSON.parse(this.responseText) // when we get the data from object using Api we get 'String' Data Type not object type remember!.
+                // 'this' keyword is used to work on current context.
+                // parse() convert String to JSON
+                
+                avatar.src = data.avatar_url
+                username.textContent = data.login
+                followers.textContent = `Followers: ${data.followers}`
+                bio.textContent = data.bio
+
+                card.style.display = "block" // show the card
+
+            }
+        } 
+        
+        xhr.send()
+        })
+
+        buttonHide.addEventListener('click', function(){
+            card.style.display = "none" // hide the card
+        })
+
+    
+</script>
+</html>
