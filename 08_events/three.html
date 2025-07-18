@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>Atif Insight</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button> -->
+
+    <h1 id="h1">Start should change the background color every second</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+</body>
+<script>
+
+    // let intervalId
+    
+    // document.querySelector('#start').addEventListener('click', function(){
+    //     const sayDate = function(str){
+    //     console.log(str, Date.now());
+    // }
+    // intervalId = setInterval(sayDate, 1000, "Atif")
+    // })
+
+    // document.querySelector('#stop').addEventListener('click', function(){
+    //     clearInterval(intervalId)
+    // })
+    
+    // *******************************************
+
+    // Generate a random color
+    const randomColor = function(){
+        const hex = "0123456789ABCDEF"
+        let color = '#'
+        for (let i = 0; i < 6; i++) {   // 6 means 6 digit color code
+            color += hex[Math.floor(Math.random() * 16)]    // this math function gives us value from 0-16 randomly also it adds in hex above
+        }
+        return color
+    }
+    let intervalId
+    let h1 = document.querySelector('#h1')
+    const startChangingColor = function(){
+        if (!intervalId) {
+            intervalId = setInterval(changeBgColor, 1000)
+        }
+        h1.style.color = '#fff'
+        function changeBgColor(){
+            document.body.style.backgroundColor = randomColor()
+        }
+    }
+    const stopChangingColor = function(){
+        clearInterval(intervalId)
+        intervalId = null   // if not use set to null to free memory
+    }
+
+    document.querySelector('#start').addEventListener('click', startChangingColor)
+
+    document.querySelector('#stop').addEventListener('click', stopChangingColor)
+
+    
+
+
+</script>
+</html>
