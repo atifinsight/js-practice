@@ -1,0 +1,48 @@
+<!-- 
+ 
+-> Javascript is Synchronous 
+-> Single threaded language
+
+-> Execution Context
+    i. execute one line of code at a time
+    ii. each operation waits for last one to complete before executing
+
+Blocking code       Vs      Non blocking code
+|                                   |
+|                                   |
+block the flow of program       Do not block exe   
+read file Sync                  read file Async
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Atif Insight</h1>
+    <button id="stop">Stop</button>
+
+</body>
+<script>
+    const sayAtif = function(){  // execute only ones
+        console.log("Atif"); 
+    }
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Best JS Code"
+    }
+
+    const changeMe = setTimeout(changeText, 2000)
+    // setInterval(function(){     // execute continously
+    //     console.log("Zeeshan");
+    // }, 2000)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)  // it stops the timeout 
+    })
+</script>
+</html>
