@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+<body>
+    <!-- // Closure gives you access to an outer function scope from an inenr function. In JS, closures are created every time a function is created, at function creation time. -->
+     <button id="orange">Orange</button>
+     <button id="green">Green</button>
+</body>
+<script>
+
+    // Lexical Scope means child function can have access of parent function variables. but parent function does have access of child function variables.
+
+    // Lexical Scope:
+
+    // function init(){
+    //     var name = "Mozilla"
+    //     function displayName(){
+    //         console.log(name);  // Lexical Scope
+    //     }
+    //     displayName()
+    // }
+    // init()
+
+    // Closure:
+
+    // function makeFunc(){
+    //     const name = "Mozilla"
+    //     function displayName(){
+    //         console.log(name)
+    //     }
+    //     return displayName
+    // }
+    // const myFunc = makeFunc()
+    // myFunc()
+
+    // document.getElementById('orange').onclick = function(){
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+    // document.getElementById('green').onclick = function(){
+    //     document.body.style.backgroundColor = 'green'
+    // }
+
+
+    // Closure real world scenario example
+
+    function clickHander(color){
+        // document.body.style.backgroundColor =  `${color}`
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+
+    document.getElementById('orange').onclick = clickHander('orange')
+    document.getElementById('green').onclick = clickHander('green')
+
+</script>  
+</html>
